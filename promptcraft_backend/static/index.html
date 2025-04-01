@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptCraft - AI Tool Prompt Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PromptCraft</h1>
+            <p class="subtitle">Generate detailed AI prompts for tool creation</p>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <form id="promptForm">
+                    <div class="form-group">
+                        <label for="goal">Tool Goal/Purpose <span class="required">*</span></label>
+                        <input type="text" id="goal" name="goal" required placeholder="e.g., Create a Python script to scrape website titles">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tech-stack-input">Tech Stack</label>
+                        <div class="tag-input-container">
+                            <input type="text" id="tech-stack-input" placeholder="e.g., Python, then press Enter">
+                            <p class="tag-instruction">Type text and press Enter to add a tag</p>
+                            <div id="tech-stack-tags" class="tags-container"></div>
+                            <input type="hidden" id="tech-stack" name="tech_stack" value="[]">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="coding-style">Coding Style</label>
+                        <input type="text" id="coding-style" name="coding_style" placeholder="e.g., Object-Oriented, Functional, Clean Code principles">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="key-features-input">Key Features</label>
+                        <div class="tag-input-container">
+                            <input type="text" id="key-features-input" placeholder="Add a feature, then press Enter">
+                            <p class="tag-instruction">Type text and press Enter to add a tag</p>
+                            <div id="key-features-tags" class="tags-container"></div>
+                            <input type="hidden" id="key-features" name="key_features" value="[]">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="target-audience">Target Audience</label>
+                        <input type="text" id="target-audience" name="target_audience" placeholder="e.g., Developers via CLI, Non-technical users via GUI">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="constraints-input">Constraints</label>
+                        <div class="tag-input-container">
+                            <input type="text" id="constraints-input" placeholder="Add a constraint, then press Enter">
+                            <p class="tag-instruction">Type text and press Enter to add a tag</p>
+                            <div id="constraints-tags" class="tags-container"></div>
+                            <input type="hidden" id="constraints" name="constraints" value="[]">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="output-format">Desired Output Format</label>
+                        <select id="output-format" name="output_format_request">
+                            <option value="full_code">Full Code</option>
+                            <option value="pseudocode">Pseudocode</option>
+                            <option value="architectural_plan">Architectural Plan</option>
+                            <option value="function_definition">Function Definition</option>
+                            <option value="step_by_step_plan">Step-by-Step Plan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ai-model-target">Target AI Model</label>
+                        <input type="text" id="ai-model-target" name="ai_model_target" value="GPT-4" placeholder="e.g., GPT-4, Claude 3 Opus, Gemini Pro">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="generate-btn">Generate Prompt</button>
+                        <button type="button" id="copy-btn" style="display: none;">Copy to Clipboard</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="result-container" id="result-section" style="display: none;">
+                <h2>Generated Prompt</h2>
+                <div class="loading" id="loading-indicator">
+                    <div class="spinner"></div>
+                    <p>Generating prompt...</p>
+                </div>
+                <pre id="prompt-result"></pre>
+            </div>
+        </main>
+
+        <footer>
+            <p>PromptCraft - Create tailored AI prompts for tool development</p>
+            <p><a href="/docs" target="_blank">API Documentation</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

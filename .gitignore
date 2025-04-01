@@ -1,0 +1,7 @@
+# Ignore script files with tokens
+script.sh
+script.shy
+__pycache__/
+*.pyc
+.env
+.DS_Store
